@@ -1,16 +1,19 @@
 package com.arraisicode.customer.service;
 
 import com.arraisicode.customer.controller.request.CustomerRegistrationRequest;
+import com.arraisicode.customer.controller.response.FraudCheckResponse;
 import com.arraisicode.customer.model.Customer;
 import com.arraisicode.customer.repository.CustomerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 @AllArgsConstructor
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
+    private final RestTemplate restTemplate;
 
     public void registerCustomer(CustomerRegistrationRequest request) {
         Customer customer = Customer.builder()
@@ -20,7 +23,18 @@ public class CustomerService {
                 .build();
         // todo: check if email valid
         // todo: check if email not taken
-        // todo: store customer in db
-        customerRepository.save(customer);
+        customerRepository.saveAndFlush(customer);
+        // todo: check if fraudster
+        FraudCheckResponse fraudCheckResponse = restTemplate.getForObject(
+                "http://localhost:8081/api/v1/fraud-check/{customerId}",
+                FraudCheckResponse.class,
+                customer.getId()
+        );
+
+        if (fraudCheckResponse.isFraudster()) {
+            throw new IllegalStateException("fraudster");
+        }
+
+        // todo: send notification
     }
 }
