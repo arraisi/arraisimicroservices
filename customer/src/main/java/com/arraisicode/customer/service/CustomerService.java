@@ -3,10 +3,15 @@ package com.arraisicode.customer.service;
 import com.arraisicode.customer.controller.request.CustomerRegistrationRequest;
 import com.arraisicode.customer.model.Customer;
 import com.arraisicode.customer.repository.CustomerRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-public record CustomerService(CustomerRepository customerRepository) {
+@AllArgsConstructor
+public class CustomerService {
+
+    private final CustomerRepository customerRepository;
+
     public void registerCustomer(CustomerRegistrationRequest request) {
         Customer customer = Customer.builder()
                 .firstName(request.firstName())
