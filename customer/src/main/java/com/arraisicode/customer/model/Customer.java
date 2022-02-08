@@ -1,4 +1,4 @@
-package com.arraisicode.customer;
+package com.arraisicode.customer.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

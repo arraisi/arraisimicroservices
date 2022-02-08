@@ -1,4 +1,4 @@
-package com.arraisicode.customer;
+package com.arraisicode.customer.controller.request;
 
 public record CustomerRegistrationRequest(
         String firstName,

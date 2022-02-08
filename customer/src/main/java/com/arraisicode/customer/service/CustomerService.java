@@ -1,5 +1,8 @@
-package com.arraisicode.customer;
+package com.arraisicode.customer.service;
 
+import com.arraisicode.customer.controller.request.CustomerRegistrationRequest;
+import com.arraisicode.customer.model.Customer;
+import com.arraisicode.customer.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 @Service

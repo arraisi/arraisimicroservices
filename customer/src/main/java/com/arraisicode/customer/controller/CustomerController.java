@@ -1,5 +1,7 @@
-package com.arraisicode.customer;
+package com.arraisicode.customer.controller;
 
+import com.arraisicode.customer.controller.request.CustomerRegistrationRequest;
+import com.arraisicode.customer.service.CustomerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
