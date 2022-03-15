@@ -1,7 +1,7 @@
 package com.arraisicode.fraud.controller;
 
+import com.arraisicode.clients.fraud.FraudCheckResponse;
 import com.arraisicode.fraud.service.FraudCheckService;
-import com.arraisicode.fraud.controller.response.FraudCheckResponse;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
