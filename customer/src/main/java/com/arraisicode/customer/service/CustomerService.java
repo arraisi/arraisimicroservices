@@ -10,7 +10,8 @@ import com.arraisicode.customer.repository.CustomerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.io.File;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -46,5 +47,9 @@ public class CustomerService {
                 )
         );
 
+    }
+
+    public List<Customer> listAll() {
+        return customerRepository.findAll();
     }
 }

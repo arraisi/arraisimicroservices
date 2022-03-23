@@ -1,2 +1,7 @@
 /.idea/
 .DS_Store
+/apigw/target/
+/clients/target/
+/customer/target/
+/fraud/target/
+/notification/target/
